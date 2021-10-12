@@ -1,11 +1,10 @@
-import React, {useCallback, useEffect} from "react";
+import React,{useCallback,useEffect} from "react";
 import {createPortal} from 'react-dom';
-import style from './styles/modal.module.scss';
-
+import style from './styles/modal.module.scss'
 
 const modalRoot=document.querySelector('#modal-root')
 
-export default function Modal({children,onClose}){
+export default function Modal({onClose,imgLarge,altImg}){
 
     const closeModalEscape =useCallback((e) => {
         if (e.code === "Escape") {
@@ -28,7 +27,9 @@ export default function Modal({children,onClose}){
         }
     }
 
-    return createPortal(<div className={style.Modal__backdrop} onClick={closeClickModal}>
-        <div className={style.Modal__content}>{children}</div>
-    </div>,modalRoot)
-}
+        return createPortal(<div className={style.Modal__backdrop} onClick={closeClickModal}>
+            <div className={style.Modal__content}>
+                <img src={imgLarge} alt={altImg} /></div>
+        </div>,modalRoot)
+    }
+

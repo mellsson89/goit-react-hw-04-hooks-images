@@ -34,7 +34,7 @@ export default function App(){
 //
    const onOpenImgGallery = (id) => {
         const {largeImageURL}=imgGallery.find(img => img.id === id);
-
+        console.log(largeImageURL)
         setLargeImageURL(largeImageURL);
     }
 //
